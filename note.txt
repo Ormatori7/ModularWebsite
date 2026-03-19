@@ -1,0 +1,42 @@
+l'install
+
+-----------ETAPE 1---------
+npm create vite@latest ModularWebsite -- --template react-ts
+
+(le template react-ts permet de mettre react et ts d'un coup)
+
+-----------ETAPE 2---------
+cd my-app
+npm install
+npm run dev
+
+-----------ETAPE 3 => TAILWIND---------
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+si ca fonctionne pas alors:
+npm install @tailwindcss/postcss
+a la racine:
+-créer le fichier tailwind.config.js et le remplir avec ce qu'il y a dedans
+-créer le fichier postcss.config.js et le remplir avec ce qu'il y a dedans 
+Ensuite:
+-aller dans index.css et app.css et tt supp puis rempalcer par ce qu'il y a dans les miens
+
+
+---- SI TU DOIS AJOUTER TYPESCRIPT DANS UN PROJECT EN REACT--------
+npm install --save-dev typescript @types/react @types/react-dom
+
+Après ça, tu devras renommer tes fichiers .jsx en .tsx et créer un fichier tsconfig.json.
+
+-----------POUR LES ICONES REACT------------
+npm install react-icons
+
+
+
+
+
+
+
+
+
+utilisation de Stripe
