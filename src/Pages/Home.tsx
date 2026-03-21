@@ -16,8 +16,7 @@ export function Home({ setPage }: HomeProps) {
             STUDIO <span className="text-violet-600">3D.</span>
           </h1>
           <p className="text-slate-500 mt-4 max-w-md text-sm">
-            Ressources premium pour créateurs exigeants. <br />
-            Modèles optimisés, textures 8K, prêt pour la production.
+            A website where u can buy model and texture.
           </p>
         </div>
 

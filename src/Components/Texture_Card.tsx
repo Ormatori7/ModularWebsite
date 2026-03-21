@@ -1,16 +1,12 @@
-export interface CardTextureProps{
+export interface CardTextureProps {
   id: number;
   titre: string;
   description: string;
   prix: number;
   etiquette: string;
   image: string;
+  onAjouter: (article: any) => void;
 }
-
-
-
-
-
 
 export function TextureCard({
   titre,
@@ -18,6 +14,7 @@ export function TextureCard({
   prix,
   etiquette,
   image,
+  onAjouter,
 }: CardTextureProps) {
   return (
     <div className="w-96 bg-white rounded-[2rem] p-5 shadow-xl border border-slate-100 cursor-pointer">
@@ -43,8 +40,11 @@ export function TextureCard({
         <h2 className="font-bold text-slate-800 text-base">{titre}</h2>
         <h3 className=" text-slate-800 text-base">{description}</h3>
 
-        <button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 transition-all cursor-pointer">
-          <span>Icone </span> Acheter
+        <button
+          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 transition-all cursor-pointer"
+          onClick={() => onAjouter({ titre, prix, image })}
+        >
+          <span>Icone </span> Ajouter au Panier
         </button>
       </div>
     </div>

@@ -5,15 +5,17 @@ import { supabase } from "../utils/supabaseClient";
 import { Card3D } from "../Components/3D_ModelCard";
 import type { Card3DProps } from "../Components/3D_ModelCard"; // une interface s'importe avec type
 
-export function ModelPage() {
+interface ModelPageProps {
+  ajouterAuPanier: (article: any) => void;
+}
+
+export function ModelPage({ ajouterAuPanier }: ModelPageProps) {
   //creation d'un tableau vide pour recup les ligens de ma table dans ma db
   const [modeles, setModeles] = useState<Card3DProps[]>([]);
 
   useEffect(() => {
     const chargementDonnees = async () => {
-      const { data, error } = await supabase
-      .from("Table3DCard")
-      .select("*");
+      const { data, error } = await supabase.from("Table3DCard").select("*");
 
       if (!error && data) {
         //si pas d'erreur et que data est rempli alors on range le tableau recu (data) de la db dans la variable modeles qui est sur le format de l'interface card3Dprops
@@ -44,8 +46,8 @@ export function ModelPage() {
               3D <span className="text-violet-400">Model</span>
             </h1>
             <span className="text-xs font-bold text-black/250 uppercase tracking-widest">
-            {/* pour modifier le nombre en fonction des card et mettre un s si plus de 1 card */}
-              {modeles.length} Ressource{modeles.length > 1 ? 's' : ''} 
+              {/* pour modifier le nombre en fonction des card et mettre un s si plus de 1 card */}
+              {modeles.length} Ressource{modeles.length > 1 ? "s" : ""}
             </span>
           </div>
         </div>
@@ -54,9 +56,7 @@ export function ModelPage() {
           {/* utilisation de la tech appelé "SPREAD OPERATOR" pour boucler sur les lignes de ma table 
         (condition => avoir escatement les mmes noms pour les elemnents de la table et interface) */}
           {modeles.map((item) => (
-            <Card3D 
-            key={item.id} 
-            {...item} />
+            <Card3D key={item.id} {...item} onAjouter={ajouterAuPanier} />
           ))}
         </div>
       </div>

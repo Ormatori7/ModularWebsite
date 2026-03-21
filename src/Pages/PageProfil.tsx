@@ -10,7 +10,7 @@ interface UserProfileInterface {
 interface ProfilPageProps {
   user: UserProfileInterface | null;
   //le state qui contient soit l'utilisateur soit rien ( le null)
-  // en mettant l'intrace ici on dit que user doit obligatoirement suivre la mme acrhitecture que l'interface
+  // en mettant l'interface ici on dit que user doit obligatoirement suivre la mme acrhitecture que l'interface
   setUser: (user: UserProfileInterface | null) => void;
 }
 
@@ -101,14 +101,14 @@ export function ProfilPage({ user, setUser }: ProfilPageProps) {
 
               <button
                 onClick={isSignUp ? handleSignUp : handleSignIn}
-                className="w-full py-5 bg-violet-600 text-white font-black rounded-2xl uppercase tracking-widest shadow-xl shadow-violet-100 active:scale-95 transition-transform"
+                className="w-full py-5 bg-violet-600 text-white font-black rounded-2xl uppercase tracking-widest shadow-xl shadow-violet-100 active:scale-95 transition-transform cursor-pointer"
               >
                 {isSignUp ? "Créer" : "Entrer"}
               </button>
 
               <button
                 onClick={() => setIsSignUp(!isSignUp)}
-                className="w-full text-center text-[10px] font-black uppercase text-slate-300 hover:text-violet-600 transition-colors"
+                className="w-full text-center text-[10px] font-black uppercase text-slate-300 hover:text-violet-600 transition-colors cursor-pointer"
               >
                 {isSignUp ? "Déjà membre ? Connexion" : "Nouveau ? Inscription"}
               </button>

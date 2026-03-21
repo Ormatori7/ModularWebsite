@@ -23,7 +23,7 @@ export function NavBar({ page, setPage, user }: NavBarProps) {
     return true; // Pour tous les autres boutons (Home, Profil...), on affiche toujours
   });
   return (
-    <header className="fixed left-0 w-full z-[200] flex justify-center pointer-events-none">
+    <header className="fixed left-0 w-full z-[200] flex justify-center pointer-events-none bg-white">
       <div className="w-full border-b border-violet-400 p-1.5 rounded-b-lg pointer-events-auto h-15">
         <div className="grid grid-cols-2 items-center h-full px-4">
           <div className="flex items-center">

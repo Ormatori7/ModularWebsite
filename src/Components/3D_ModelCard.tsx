@@ -5,6 +5,7 @@ export interface Card3DProps {
   prix: number;
   etiquette: string;
   image: string;
+  onAjouter: (article: any) => void;
 }
 
 export function Card3D({
@@ -13,6 +14,7 @@ export function Card3D({
   prix,
   etiquette,
   image,
+  onAjouter,
 }: Card3DProps) {
   return (
     <div className="w-96 bg-white rounded-[2rem] p-5 shadow-xl border border-slate-100 cursor-pointer">
@@ -38,8 +40,11 @@ export function Card3D({
         <h2 className="font-bold text-slate-800 text-base">{titre}</h2>
         <h3 className=" text-slate-800 text-base">{description}</h3>
 
-        <button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 transition-all cursor-pointer">
-          <span>Icone </span> Acheter
+        <button
+          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 transition-all cursor-pointer"
+          onClick={() => onAjouter({ titre, prix, image })}
+        >
+          <span>Icone </span> Ajouter au panier
         </button>
       </div>
     </div>

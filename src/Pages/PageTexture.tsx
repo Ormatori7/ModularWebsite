@@ -3,7 +3,16 @@ import type { CardTextureProps } from "../Components/Texture_Card";
 import { supabase } from "../utils/supabaseClient";
 import { useState, useEffect } from "react";
 
-export function TexturePage() {
+
+
+
+interface TexturePageProps {
+  ajouterAuPanier: (article: any) => void;
+}
+
+
+
+export function TexturePage({ajouterAuPanier}: TexturePageProps) {
   //creation d'un tableau vide pour recup les ligens de ma table dans ma db
   const [modeles, setModeles] = useState<CardTextureProps[]>([]);
 
@@ -52,7 +61,9 @@ export function TexturePage() {
           {modeles.map((item) => (
             <TextureCard
             key={item.id}
-             {...item} />
+             {...item}
+             onAjouter={ajouterAuPanier} 
+             />
           ))}
         </div>
       </div>
